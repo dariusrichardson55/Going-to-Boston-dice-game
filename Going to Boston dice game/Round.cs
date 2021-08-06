@@ -10,6 +10,7 @@ namespace Going_to_Boston_dice_game
     {
         public int Player1Round = 0;
         public int Player2Round = 0;
+        public int ComputerRound = 0;
        
 
     }

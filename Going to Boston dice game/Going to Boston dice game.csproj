@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Computer Match Play.cs" />
+    <Compile Include="Computer Score Play.cs" />
     <Compile Include="Console.cs" />
     <Compile Include="Die.cs" />
     <Compile Include="Match Play.cs" />

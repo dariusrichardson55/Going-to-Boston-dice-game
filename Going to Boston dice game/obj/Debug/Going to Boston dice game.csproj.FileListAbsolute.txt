@@ -16,3 +16,9 @@ C:\Users\dariu\Documents\University\Year 1\Programming and Data Structures\Going
 C:\Users\dariu\Documents\University\Year 1\Programming and Data Structures\Going to Boston dice game\Going to Boston dice game\obj\Debug\Going to Boston dice game.exe
 C:\Users\dariu\Documents\University\Year 1\Programming and Data Structures\Going to Boston dice game\Going to Boston dice game\obj\Debug\Going to Boston dice game.pdb
 C:\Users\dariu\Documents\University\Year 1\Programming and Data Structures\Going to Boston dice game\Going to Boston dice game\obj\Debug\Going to Boston dice game.csproj.AssemblyReference.cache
+C:\Users\dariu\Desktop\Going-to-Boston-dice-game\Going to Boston dice game\bin\Debug\Going to Boston dice game.exe
+C:\Users\dariu\Desktop\Going-to-Boston-dice-game\Going to Boston dice game\bin\Debug\Going to Boston dice game.pdb
+C:\Users\dariu\Desktop\Going-to-Boston-dice-game\Going to Boston dice game\obj\Debug\Going to Boston dice game.csproj.CoreCompileInputs.cache
+C:\Users\dariu\Desktop\Going-to-Boston-dice-game\Going to Boston dice game\obj\Debug\Going to Boston dice game.exe
+C:\Users\dariu\Desktop\Going-to-Boston-dice-game\Going to Boston dice game\obj\Debug\Going to Boston dice game.pdb
+C:\Users\dariu\Desktop\Going-to-Boston-dice-game\Going to Boston dice game\obj\Debug\Going to Boston dice game.csproj.AssemblyReference.cache
