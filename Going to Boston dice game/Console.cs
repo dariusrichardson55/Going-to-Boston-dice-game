@@ -20,14 +20,6 @@ namespace Util
             return System.Console.ReadLine();
         }
 
-       
-
-        static public int AskInt(string answer)
-        {
-            System.Console.WriteLine(answer);
-            return System.Console.ReadLine().toInt();
-        }
-
 
     }
 }

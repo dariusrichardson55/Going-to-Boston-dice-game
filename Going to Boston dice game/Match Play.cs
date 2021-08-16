@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Going_to_Boston_dice_game;
 using Game;
+using Players;
 
 namespace Match_Play_Game
 {
@@ -11,19 +8,19 @@ namespace Match_Play_Game
     {
         public static void Match()
         {
-            var game = new Game_Play();
 
+           Game_Play game = new Game_Play();
+           Player player = new Player();
 
-            // Allows user to enter name of Player 1 and Player2
+        // Allows user to enter name of Player 1 and Player2
             game.Player1 = Util.Console.Ask("Enter name of Player 1");
-
             game.Player2 = Util.Console.Ask("Enter name of Player 2");
 
                 try
                 {
                     while (game.Playing)
                     {
-                        //// Continue Program 9 times
+                        // Continue Program 9 times
 
                         while (game.RoundNum < 9)
                         {
@@ -32,7 +29,7 @@ namespace Match_Play_Game
                             game.RoundNum++;
 
                             // Message for Player 1
-                            Console.WriteLine(game.Player1 + " ,press enter to roll three dice");
+                            Console.WriteLine(game.Player1 + " press enter to roll three dice");
                             Console.ReadLine();
 
                             // Display three random numbers from 1 to 6 for Player 1
@@ -43,19 +40,17 @@ namespace Match_Play_Game
                             {
                                 game.Player1Dice = Player1numbers1.Next(1, 7);
 
-
-                                if (game.Player1Dice > game.Player1score)
+                                if (game.Player1Dice > player.Player1score)
                                 {
-                                    game.Player1score = game.Player1Dice;
-
+                                    player.Player1score = game.Player1Dice;
                                 }
 
                                 Console.WriteLine(game.Player1Dice);
                             }
-                            Console.WriteLine(game.Player1 + " ,your score is:" + game.Player1score);
+                            Console.WriteLine(game.Player1 + " your score is:" + player.Player1score);
 
                             // Message for Player 1
-                            Console.WriteLine(game.Player2 + " ,press enter to roll two dice");
+                            Console.WriteLine(game.Player1 + " press enter to roll two dice");
                             Console.ReadLine();
 
                             /// Display two random numbers for Player 1
@@ -65,22 +60,20 @@ namespace Match_Play_Game
                             {
                                 game.Player1Dice = Player1numbers2.Next(1, 7);
 
-                                if (game.Player1Dice > game.Player1score2)
+                                if (game.Player1Dice > player.Player1score2)
                                 {
-                                    game.Player1score2 = game.Player1Dice;
+                                    player.Player1score2 = game.Player1Dice;
                                 }
-
 
                                 Console.WriteLine(game.Player1Dice);
 
                             }
 
-                            Console.WriteLine(game.Player1 + " ,your score is:" + game.Player1score2);
-                            Console.WriteLine("\n");
+                            Console.WriteLine(game.Player1 + " your score is:" + player.Player1score2);
 
                             /// Display one random number for Player 1
 
-                            Console.WriteLine(game.Player1 + " ,press enter to roll a die:");
+                            Console.WriteLine(game.Player1 + " press enter to roll a die:");
                             Console.ReadLine();
 
                             // Finds maxiumn numbers from random numbers
@@ -89,50 +82,42 @@ namespace Match_Play_Game
                             {
                                 game.Player1Dice = Player1numbers3.Next(1, 7);
 
-                                if (game.Player1Dice > game.Player1score3)
+                                if (game.Player1Dice > player.Player1score3)
                                 {
-                                    game.Player1score3 = game.Player1Dice;
+                                    player.Player1score3 = game.Player1Dice;
                                 }
 
                                 Console.WriteLine(game.Player1Dice);
 
                             }
-                            Console.WriteLine(game.Player1 + ",your score is:" + game.Player1Dice);
+                            Console.WriteLine(game.Player1 + " your score is:" + player.Player1score3);
                             Console.WriteLine("\n");
 
 
-                            game.Player1Totalscore = (game.Player1score + game.Player1score2 + game.Player1score3);
-                            Console.WriteLine(game.Player1 + " your total score is:" + game.Player1Totalscore);
+                            player.Player1Totalscore = (player.Player1score + player.Player1score2 + player.Player1score3);
+                            Console.WriteLine(game.Player1 + " your total score is:" + player.Player1Totalscore);
 
 
                             /// Display three random numbers for Player 2
-                            Console.WriteLine(game.Player2 + " ,your turn:");
-                            Console.WriteLine(game.Player2 + " ,press enter to roll three dice:");
+                            Console.WriteLine(game.Player2 + " your turn:");
+                            Console.WriteLine(game.Player2 + " press enter to roll three dice:");
                             Console.ReadLine();
 
                             Random Player2numbers1 = new Random();
                             for (int numbercount = 0; numbercount < 3; numbercount++)
                             {
-
-
                                 game.Player2Dice = Player2numbers1.Next(1, 7);
 
-                                if (game.Player2Dice > game.Player2score)
+                                if (game.Player2Dice > player.Player2score)
                                 {
-                                    game.Player2score = game.Player2Dice;
-
+                                    player.Player2score = game.Player2Dice;
                                 }
 
-
                                 Console.WriteLine(game.Player2Dice);
-
                             }
 
-                            Console.WriteLine(game.Player2 + " ,your score is:" + game.Player2score);
-
-
-
-                            Console.WriteLine(game.Player2 + " ,Press enter to roll two dice:");
+                            Console.WriteLine(game.Player2 + " your score is:" + player.Player2score);
+                            Console.WriteLine(game.Player2 + " Press enter to roll two dice:");
                             Console.ReadLine();
 
                             // Display two random numbers
@@ -141,23 +126,19 @@ namespace Match_Play_Game
                             {
                                 game.Player2Dice = Player2numbers2.Next(1, 7);
 
-                                if (game.Player2Dice > game.Player2score2)
+                                if (game.Player2Dice > player.Player2score2)
                                 {
-                                    game.Player2score2 = game.Player2Dice;
-
-
+                                    player.Player2score2 = game.Player2Dice;
                                 }
 
                                 Console.WriteLine(game.Player2Dice);
 
                             }
 
-                            Console.WriteLine(game.Player2 + " ,your score is:" + game.Player2score2);
+                            Console.WriteLine(game.Player2 + " your score is:" + player.Player2score2);
 
-                            Console.WriteLine(game.Player2 + " ,Press enter to roll die:");
+                            Console.WriteLine(game.Player2 + " press enter to roll die:");
                             Console.ReadLine();
-
-
 
                             // Display one random number for Player 2
                             Random Player2numbers3 = new Random();
@@ -166,74 +147,63 @@ namespace Match_Play_Game
                                 game.Player2Dice = Player2numbers3.Next(1, 7);
 
 
-                                if (game.Player1Dice > game.Player1score3)
+                                if (game.Player2Dice > player.Player2score3)
                                 {
-                                    game.Player2score3 = game.Player1Dice;
+                                    player.Player2score3 = game.Player2Dice;
                                 }
 
                                 Console.WriteLine(game.Player2Dice);
                             }
 
-
-                            Console.WriteLine(game.Player2 + " ,your score is:" + game.Player2Dice);
-
+                            Console.WriteLine(game.Player2 + " your score is:" + player.Player2score3);
 
                             // Adds scores from Round 1 and displays player 2's total score for Round 1 
 
-
-                            game.Player2Totalscore = (game.Player2score + game.Player2score2 + game.Player2Dice);
-                            Console.WriteLine(game.Player2 + " your total score is:" + game.Player2Totalscore);
+                            player.Player2Totalscore = (player.Player2score + player.Player2score2 + player.Player2score3);
+                            Console.WriteLine(game.Player2 + " your total score is:" + player.Player2Totalscore);
                             Console.WriteLine("\n");
 
                             // Adds scores from Round 2 and displays player 2's total score for Round 2 
 
-
-
-                            if (game.Player1Totalscore > game.Player2Totalscore)
+                            if (player.Player1Totalscore > player.Player2Totalscore)
                             {
-                                game.Player1winsRound.Player1Round = game.Player1winsRound.Player1Round + 1;
+                                game.Player1winsRound = game.Player1winsRound + 1;
                                 game.Player1Points++;
                                 Console.WriteLine(game.Player1 + " wins round " + Convert.ToString(game.RoundNum));
                                 Console.WriteLine(game.Player1 + " points:" + Convert.ToString(game.Player1Points));
+                                // resets players score to 0 for next round
+                                player = new Player(); 
                                 game.Round = false;
 
-                            }
+                        }
 
-                            else if (game.Player1Totalscore < game.Player2Totalscore)
+                        else if (player.Player1Totalscore < player.Player2Totalscore)
                             {
-                                game.Player2winsRound.Player2Round = game.Player2winsRound.Player2Round + 1;
+                                game.Player2winsRound = game.Player2winsRound + 1;
                                 game.Player2Points++;
                                 Console.WriteLine(game.Player2 + " wins round " + Convert.ToString(game.RoundNum));
                                 Console.WriteLine(game.Player2 + " points:" + Convert.ToString(game.Player2Points));
+                                // resets players score to 0 for next round
+                                player = new Player();
                                 game.Round = false;
                             
                         }
 
-                        game.Player1Totalscore = 0;
-                        game.Player2Totalscore = 0;
-
-                        game.Player1score = 0;
-                        game.Player1score2 = 0;
-                        game.Player1score3 = 0;
-
-                        game.Player2score = 0;
-                        game.Player2score2 = 0;
-                        game.Player2score3 = 0;
-
-                        if (game.Player1winsRound.Player1Round == 5)
+                        if (game.Player1winsRound == 5)
                             {
                                 Console.WriteLine(game.Player1 + " win's game");
                                 Console.WriteLine("\nClick Enter to restart");
                                 Console.ReadLine();
-                                game.Playing = false;
+                                Game_Play.Play();
+                                
                             }
 
-                            else if (game.Player2winsRound.Player2Round == 5)
+                            else if (game.Player2winsRound == 5)
                             {
                                 Console.WriteLine(game.Player2 + " win's game");
                                 Console.WriteLine("\nClick Enter to restart");
                                 Console.ReadLine();
-                                game.Playing = false;
+                                Game_Play.Play();
                             }
                         }
                      }

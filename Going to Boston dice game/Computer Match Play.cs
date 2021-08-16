@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Going_to_Boston_dice_game;
 using System.Threading;
 using Game;
+using Players;
 
-namespace Going_to_Boston_dice_game
+namespace Computer_Match_Play_Game
 {
     public class Computer_Match_Play
     {
         public static void Computer_Match()
         {
-            var game = new Game_Play();
 
+            Game_Play game = new Game_Play();
+            Player player = new Player();
 
             // Allows user to enter name of Player 1 and Player2
             game.Player1 = Util.Console.Ask("Please enter your name");
@@ -44,15 +42,15 @@ namespace Going_to_Boston_dice_game
                             game.Player1Dice = Player1numbers1.Next(1, 7);
 
 
-                            if (game.Player1Dice > game.Player1score)
+                            if (game.Player1Dice > player.Player1score)
                             {
-                                game.Player1score = game.Player1Dice;
+                                player.Player1score = game.Player1Dice;
 
                             }
 
                             Console.WriteLine(game.Player1Dice);
                         }
-                        Console.WriteLine(game.Player1 + ",your score is:" + game.Player1score);
+                        Console.WriteLine(game.Player1 + ",your score is:" + player.Player1score);
 
                         // Message for Player 1
                         Console.WriteLine(game.Player1 + ",press enter to roll two dice");
@@ -65,9 +63,9 @@ namespace Going_to_Boston_dice_game
                         {
                             game.Player1Dice = Player1numbers2.Next(1, 7);
 
-                            if (game.Player1Dice > game.Player1score2)
+                            if (game.Player1Dice > player.Player1score2)
                             {
-                                game.Player1score2 = game.Player1Dice;
+                                player.Player1score2 = game.Player1Dice;
                             }
 
 
@@ -75,7 +73,7 @@ namespace Going_to_Boston_dice_game
 
                         }
 
-                        Console.WriteLine(game.Player1 + ",your score is:" + game.Player1score2);
+                        Console.WriteLine(game.Player1 + ",your score is:" + player.Player1score2);
                         Console.WriteLine("\n");
 
                         /// Display one random number for Player 1
@@ -89,9 +87,9 @@ namespace Going_to_Boston_dice_game
                         {
                             game.Player1Dice = Player1numbers3.Next(1, 7);
 
-                            if (game.Player1Dice > game.Player1score3)
+                            if (game.Player1Dice > player.Player1score3)
                             {
-                                game.Player1score3 = game.Player1Dice;
+                                player.Player1score3 = game.Player1Dice;
                             }
 
                             Console.WriteLine(game.Player1Dice);
@@ -101,8 +99,8 @@ namespace Going_to_Boston_dice_game
                         Console.WriteLine("\n");
 
 
-                        game.Player1Totalscore = (game.Player1score + game.Player1score2 + game.Player1score3);
-                        Console.WriteLine(game.Player1 + ", your total score is:" + game.Player1Totalscore);
+                        player.Player1Totalscore = (player.Player1score + player.Player1score2 + player.Player1score3);
+                        Console.WriteLine(game.Player1 + ", your total score is:" + player.Player1Totalscore);
                         Console.WriteLine("Computer's turn, please wait");
                         Thread.Sleep(4000);
 
@@ -115,18 +113,16 @@ namespace Going_to_Boston_dice_game
 
                             game.ComputerDice = Computernumbers1.Next(1, 7);
 
-                            if (game.ComputerDice > game.Computerscore)
+                            if (game.ComputerDice > player.Computerscore)
                             {
-                                game.Computerscore = game.ComputerDice;
+                                player.Computerscore = game.ComputerDice;
 
                             }
-
-
                             Console.WriteLine(game.ComputerDice);
 
                         }
 
-                        Console.WriteLine("Computer's score is:" + game.Computerscore);
+                        Console.WriteLine("Computer's score is:" + player.Computerscore);
                         Console.WriteLine("Computer rolls two dice");
 
                         // Display two random numbers
@@ -135,10 +131,9 @@ namespace Going_to_Boston_dice_game
                         {
                             game.ComputerDice = Computernumbers2.Next(1, 7);
 
-                            if (game.ComputerDice > game.Computerscore2)
+                            if (game.ComputerDice > player.Computerscore2)
                             {
-                                game.Computerscore2 = game.ComputerDice;
-
+                                player.Computerscore2 = game.ComputerDice;
 
                             }
 
@@ -146,7 +141,7 @@ namespace Going_to_Boston_dice_game
 
                         }
 
-                        Console.WriteLine("Computer's score is:" + game.Computerscore2);
+                        Console.WriteLine("Computer's score is:" + player.Computerscore2);
                         Console.WriteLine("Computer rolls die");
 
                         // Display one random number for Player 2
@@ -156,9 +151,9 @@ namespace Going_to_Boston_dice_game
                             game.ComputerDice = Computernumbers3.Next(1, 7);
 
 
-                            if (game.ComputerDice > game.Computerscore3)
+                            if (game.ComputerDice > player.Computerscore3)
                             {
-                                game.Computerscore3 = game.ComputerDice;
+                                player.Computerscore3 = game.ComputerDice;
                             }
 
                             Console.WriteLine(game.ComputerDice);
@@ -168,62 +163,51 @@ namespace Going_to_Boston_dice_game
 
                         Console.WriteLine("computer's score is:" + game.ComputerDice);
 
-
-
                         // Total score of Computer
-                        game.ComputerTotalscore = (game.Computerscore + game.Computerscore2 + game.ComputerDice);
-                        Console.WriteLine("Computer's total score is:" + game.ComputerTotalscore);
+                        player.ComputerTotalscore = (player.Computerscore + player.Computerscore2 + player.Computerscore3);
+                        Console.WriteLine("Computer's total score is:" + player.ComputerTotalscore);
                         Console.WriteLine("\n");
 
                         // Adds scores from Round 2 and displays player 2's total score for Round 2 
 
 
 
-                        if (game.Player1Totalscore > game.ComputerTotalscore)
+                        if (player.Player1Totalscore > player.ComputerTotalscore)
                         {
-                            game.Player1winsRound.Player1Round = game.Player1winsRound.Player1Round + 1;
+                            game.Player1winsRound = game.Player1winsRound + 1;
                             game.Player1Points++;
                             Console.WriteLine(game.Player1 + " wins round " + Convert.ToString(game.RoundNum));
                             Console.WriteLine(game.Player1 + " points:" + Convert.ToString(game.Player1Points));
+                            player = new Player();
                             game.Round = false;
 
                         }
 
-                        else if (game.Player1Totalscore < game.ComputerTotalscore)
+                        else if (player.Player1Totalscore < player.ComputerTotalscore)
                         {
-                            game.ComputerwinsRound.Player2Round = game.ComputerwinsRound.ComputerRound + 1;
+                            game.ComputerwinsRound = game.ComputerwinsRound + 1;
                             game.ComputerPoints++;
                             Console.WriteLine("Computer wins round " + Convert.ToString(game.RoundNum));
                             Console.WriteLine("Computer's points:" + Convert.ToString(game.ComputerPoints));
+                            player = new Player();
                             game.Round = false;
 
                         }
 
-                        game.ComputerTotalscore = 0;
-                        game.ComputerTotalscore = 0;
-
-                        game.Computerscore = 0;
-                        game.Computerscore2 = 0;
-                        game.Computerscore3 = 0;
-
-                        game.Computerscore = 0;
-                        game.Computerscore2 = 0;
-                        game.Computerscore3 = 0;
-
-                        if (game.Player1winsRound.Player1Round == 5)
+                        if (game.Player1winsRound == 5)
                         {
                             Console.WriteLine(game.Player1 + " win's game");
                             Console.WriteLine("\nClick Enter to restart");
                             Console.ReadLine();
-                            game.Playing = false;
+                            Game_Play.Play();
                         }
 
-                        else if (game.ComputerwinsRound.ComputerRound == 5)
+                        else if (game.ComputerwinsRound == 5)
                         {
                             Console.WriteLine("Computer win's game");
                             Console.WriteLine("\nClick Enter to restart");
                             Console.ReadLine();
-                            game.Playing = false;
+                            Game_Play.Play();
                         }
                     }
                 }
